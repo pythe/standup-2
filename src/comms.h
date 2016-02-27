@@ -1,2 +1,0 @@
-void requestMyStories();
-void receivedMyStories();

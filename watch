@@ -1,3 +1,0 @@
-#!/bin/bash
-echo "Watching ./src for changes..."
-fswatch -0 ./src | xargs -0 -n 1 -I{} ./build-and-emulate

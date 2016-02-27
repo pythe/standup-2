@@ -1,8 +1,0 @@
-#!/bin/bash
-
-echo "building..."
-
-pebble build && \
-pebble install --emulator=aplite && \
-pebble install --emulator=basalt && \
-pebble install --emulator=chalk

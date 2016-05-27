@@ -13,7 +13,28 @@
     "FETCH": 0
   },
   "resources": {
-    "media": []
+    "media": [
+      {
+        "type": "bitmap",
+        "name": "ICON_BUG",
+        "file": "images/bug.png"
+      },
+      {
+        "type": "bitmap",
+        "name": "ICON_CHORE",
+        "file": "images/chore.png"
+      },
+      {
+        "type": "bitmap",
+        "name": "ICON_FEATURE",
+        "file": "images/feature.png"
+      },
+      {
+        "type": "bitmap",
+        "name": "ICON_RELEASE",
+        "file": "images/release.png"
+      }
+    ]
   },
   "capabilities": [
     "configurable"

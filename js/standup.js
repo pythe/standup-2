@@ -107,7 +107,7 @@ Pebble.addEventListener('ready', function(e) {
 //   buildMenu: function(stories) {
 //     stories.forEach(function(s) {
 //       s.title = s.name;
-//       s.subtitle = capitalize(s.story_type);
+//       s.subtitle = capitalize(s.Story_Type);
 //     });
 //
 //     var grouped = groupBy(stories, function(story) {
@@ -161,10 +161,10 @@ Pebble.addEventListener('ready', function(e) {
 //       var menuItems = self.buildMenu.call(self, myStories);
 //       var menu = new UI.Menu(menuItems);
 //       menu.on('select', function(e) {
-//         console.log("Using image ", self.iconForStoryType(e.item.story_type));
+//         console.log("Using image ", self.iconForStoryType(e.item.Story_Type));
 //         var card = new UI.Card({
 //           subtitle: " ",
-//           subicon: self.iconForStoryType(e.item.story_type),
+//           subicon: self.iconForStoryType(e.item.Story_Type),
 //           body: e.item.name,
 //           scrollable: true
 //         });

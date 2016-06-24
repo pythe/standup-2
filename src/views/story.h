@@ -1,8 +1,7 @@
 #include <string.h>
 #include <pebble.h>
 
-#ifndef STORY_H
-#define STORY_H
+#pragma once
 
 Window *story_window;
 TextLayer *story__nameLayer;
@@ -28,5 +27,3 @@ void draw_story_title(Layer *, GContext *, struct Story);
 void story_show(struct Story);
 
 // void story_window_update(Layer* layer, GContext* context);
-
-#endif // STORY_H

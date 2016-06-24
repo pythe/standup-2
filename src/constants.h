@@ -1,5 +1,5 @@
-#ifndef _CONSTANTS
-#define _CONSTANTS
+#pragma once
+
 #define BRAND_BLUE GColorCobaltBlue
 #define BRAND_ORANGE GColorChromeYellow
 // Icon colors (no longer necessary?)
@@ -16,5 +16,3 @@
 #define DELIVERED_YELLOW GColorPastelYellow
 #define REJECTED_RED GColorRed
 #define ACCEPTED_GREEN GColorSpringBud
-
-#endif

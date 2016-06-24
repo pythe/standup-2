@@ -3,6 +3,7 @@
 #include "loadingScreen.h"
 #include "paths.h"
 #include "constants.h"
+#include "story.h"
 
 static void loadingScreen_window_load(Window *window) {
   APP_LOG(APP_LOG_LEVEL_DEBUG, "Drawing splash screen");
@@ -40,7 +41,7 @@ void drawLogo(Layer * layer, GContext * context) {
 
 void loadingScreen_window_update(Layer * layer, GContext * context) {
   GRect bounds = layer_get_bounds(layer);
-  int xLocation = bounds.size.w/2;
+  // int xLocation = bounds.size.w/2;
   int yLocation = bounds.size.h/2;
 
   drawLogo(layer, context);
@@ -74,17 +75,24 @@ void loadingScreen_window_update(Layer * layer, GContext * context) {
   layer_add_child(layer, text_layer_get_layer(loadingScreen__textLayer_configure));
 }
 
-// static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
-//   APP_LOG(APP_LOG_LEVEL_DEBUG, "SELECT");
-// }
-//
-// static void click_config_provider(void *context) {
-//   window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler);
-// }
+static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "loadingScreen: SELECT");
+  // Instead of this, maybe show a debug screen for problems
+  struct Story story = {
+    .title = "Main sheet jib topmast Brethren of the Coast knave boom holystone Jack Ketch Corsair execution dock. Mutiny take a caulk bilge rat ballast schooner coffer jib rutters heave to squiffy. Stern cable dance the hempen jig Admiral of the Black tender heave down chase guns keel gunwalls line.",
+    .type = bug_type
+  };
+  story_show(story);
+  window_stack_remove(loadingScreen_window, false);
+}
+
+static void click_config_provider(void *context) {
+  window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler);
+}
 
 void loadingScreen_show() {
   loadingScreen_window = window_create();
-  // window_set_click_config_provider(window, click_config_provider);
+  window_set_click_config_provider(loadingScreen_window, click_config_provider);
   window_set_window_handlers(loadingScreen_window, (WindowHandlers) {
     .load = loadingScreen_window_load,
     .unload = loadingScreen_window_unload,

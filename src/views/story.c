@@ -119,7 +119,7 @@ void draw_story_title(Layer* layer, GContext* ctx, struct Story story) {
   text_layer_set_overflow_mode(story__nameLayer, GTextOverflowModeWordWrap);
   text_layer_set_text_alignment(story__nameLayer, GTextAlignmentCenter);
   text_layer_enable_screen_text_flow_and_paging(story__nameLayer, 5);
-  text_layer_set_text(story__nameLayer, story.title);
+  text_layer_set_text(story__nameLayer, story.name);
 
   layer_add_child(layer, text_layer_get_layer(story__nameLayer));
 }

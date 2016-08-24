@@ -1,4 +1,19 @@
 var url;
+
+var STORY_TYPE = {
+  BUG: 0,
+  CHORE: 1,
+  FEATURE: 2,
+  RELEASE: 3
+}
+
+var STORY_STATE = {
+  unstarted: 0,
+  started: 1,
+  finished: 2,
+  delivered: 3
+}
+
 Pebble.addEventListener('ready', function(e) {
   console.log("JS Up and running!");
 
@@ -23,7 +38,36 @@ Pebble.addEventListener('ready', function(e) {
     localStorage.setItem('apiKey', configData.api_token);
     localStorage.setItem('initials', configData.initials);
   });
+
+  // Get set of stories using XMLHttpRequest
+  var stories = requestMyStories();
+  sendList(stories);
 });
+
+function sendItems(items, index, done) {
+    Pebble.sendAppMessage(items[index], function() {
+      if (index+1 < items.length) {
+        sendItems(items, index+1, done);
+      } else { done(); }
+    }, function() {
+      console.log('Item transmission failed: ' + index);
+    });
+};
+
+function sendList(items) {
+  Pebble.sendAppMessage({count: items.length});
+  sendItems(items, 0, function() { Pebble.sendAppMessage({complete: 1}) });
+};
+
+function requestMyStories() {
+  // soon, use XMLHttpRequest to create this shape of object
+  return [
+    {id: 1, type: STORY_TYPE.BUG, state: STORY_STATE.delivered, name: "The story name can be rather long so perhaps it should be ellipsified"},
+    {id: 2, type: STORY_TYPE.FEATURE, state: STORY_STATE.started, name: "The story name can be rather long so perhaps it should be ellipsified"},
+    {id: 3, type: STORY_TYPE.CHORE, state: STORY_STATE.finished, name: "The story name can be rather long so perhaps it should be ellipsified"},
+    {id: 4, type: STORY_TYPE.RELEASE, state: STORY_STATE.unstarted, name: "The story name can be rather long so perhaps it should be ellipsified"}
+  ];
+}
 //
 //
 //

@@ -10,7 +10,12 @@
     "watchface": false
   },
   "appKeys": {
-    "FETCH": 0
+    "id":    0,
+    "type":  1,
+    "state": 2,
+    "name":  3,
+    "complete": 4,
+    "count":    5
   },
   "resources": {
     "media": [

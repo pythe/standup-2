@@ -6,7 +6,6 @@
 Window *story_window;
 TextLayer *story__nameLayer;
 GBitmap* story_icon_bitmap;
-// loadingScreen_logoLayer;
 
 enum Story_Type {
   bug_type,
@@ -15,9 +14,18 @@ enum Story_Type {
   release_type
 };
 
+enum Story_Status {
+  unstarted,
+  started,
+  finished,
+  delivered
+};
+
 struct Story {
-  char * title;
+  int id;
+  char * name;
   enum Story_Type type;
+  enum Story_Status status;
 };
 
 GColor window_color_for_story(struct Story);

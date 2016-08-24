@@ -79,7 +79,7 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
   APP_LOG(APP_LOG_LEVEL_DEBUG, "loadingScreen: SELECT");
   // Instead of this, maybe show a debug screen for problems
   struct Story story = {
-    .title = "Main sheet jib topmast Brethren of the Coast knave boom holystone Jack Ketch Corsair execution dock. Mutiny take a caulk bilge rat ballast schooner coffer jib rutters heave to squiffy. Stern cable dance the hempen jig Admiral of the Black tender heave down chase guns keel gunwalls line.",
+    .name = "Main sheet jib topmast Brethren of the Coast knave boom holystone Jack Ketch Corsair execution dock. Mutiny take a caulk bilge rat ballast schooner coffer jib rutters heave to squiffy. Stern cable dance the hempen jig Admiral of the Black tender heave down chase guns keel gunwalls line.",
     .type = bug_type
   };
   story_show(story);

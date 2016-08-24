@@ -1,0 +1,12 @@
+{
+  "pebble": {
+    "messageKeys": [
+      "id",
+      "type",
+      "state",
+      "name",
+      "complete",
+      "count"
+    ]
+  }
+}
